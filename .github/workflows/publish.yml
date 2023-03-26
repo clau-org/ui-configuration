@@ -35,6 +35,11 @@ jobs:
       - name: Add npm credentials 🔒
         run: echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
 
+      - name: Install Deno ⬇️
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
       - name: Install dependencies ⬇️
         run: npm ci
 
