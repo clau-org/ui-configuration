@@ -1,7 +1,7 @@
 {
-  "name": "@clau-org/platform-ui-configuration",
+  "name": "@clau-org/ui-configuration",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.0",
   "main": "./nuxt.config.ts",
   "scripts": {
     "dev": "nuxi dev .playground",
@@ -9,14 +9,15 @@
     "generate": "nuxt generate .playground",
     "preview": "cd .playground/.output/ && deno run -A --watch server/index.ts",
     "prepare": "nuxt prepare .playground",
-    "deploy": "cd .playground/.output/ && deployctl deploy --project='nuxt-app-layer' --prod server/index.ts"
+    "patch": "npm version patch && npm publish",
+    "minor": "npm version minor && npm publish",
+    "major": "npm version major && npm publish"
   },
   "devDependencies": {
     "nuxt": "^3.2.3",
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "@clau-org/platform-ui-configuration": "^0.0.3",
     "@formkit/auto-animate": "^1.0.0-beta.6",
     "@headlessui/vue": "^1.7.11",
     "@heroicons/vue": "^2.0.16",
