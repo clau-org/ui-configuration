@@ -47,12 +47,6 @@ jobs:
       - name: Install dependencies ⬇️
         run: npm i
 
-      - name: Format ✨
-        run: |
-          npm run format
-          git add .
-          git commit -m "Apply Prettier formatting"
-
       - name: Build ⚒️
         run: npm run build
 
