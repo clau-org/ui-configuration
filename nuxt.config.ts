@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "nuxt-icon",
     "nuxt-headlessui",
-    "@nuxtjs/i18n",
+    // "@nuxtjs/i18n",
     /**
      * HINT: Currently doesn't work with DenoDeploy
      */

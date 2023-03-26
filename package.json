@@ -1,23 +1,22 @@
 {
-  "name": "my-nuxt-layer",
+  "name": "@clau-org/platform-ui-configuration",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "main": "./nuxt.config.ts",
   "scripts": {
     "dev": "nuxi dev .playground",
-    "build": "nuxt build .playground",
+    "build": "NITRO_PRESET=deno nuxt build .playground",
     "generate": "nuxt generate .playground",
-    "preview": "nuxt preview .playground",
-    "lint": "eslint .",
-    "postinstall": "nuxt prepare .playground"
+    "preview": "cd .playground/.output/ && deno run -A --watch server/index.ts",
+    "prepare": "nuxt prepare .playground",
+    "deploy": "cd .playground/.output/ && deployctl deploy --project='nuxt-app-layer' --prod server/index.ts"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "^0.1.1",
-    "eslint": "^8.28.0",
-    "nuxt": "^3.0.0",
+    "nuxt": "^3.2.3",
     "typescript": "^4.9.3"
   },
   "dependencies": {
+    "@clau-org/platform-ui-configuration": "^0.0.3",
     "@formkit/auto-animate": "^1.0.0-beta.6",
     "@headlessui/vue": "^1.7.11",
     "@heroicons/vue": "^2.0.16",
@@ -33,7 +32,6 @@
     "@vue-macros/nuxt": "^1.2.3",
     "@vueuse/core": "^9.13.0",
     "@vueuse/nuxt": "^9.13.0",
-    "colors": "^1.4.0",
     "magic-regexp": "^0.6.3",
     "nuxt": "^3.2.3",
     "nuxt-headlessui": "^1.1.1",
@@ -44,5 +42,8 @@
     "nuxt-viewport": "^2.0.3",
     "pinia": "^2.0.32",
     "vue3-json-source-viewer": "^2.4.2"
+  },
+  "publishConfig": {
+    "@clau-org:registry": "https://npm.pkg.github.com"
   }
 }
