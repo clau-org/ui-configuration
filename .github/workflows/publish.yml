@@ -44,5 +44,14 @@ jobs:
       - name: Preview 👀
         run: npm run preview & sleep 1 && kill $!
 
-      - name: Deploy 🚀
-        run: npm run ${{ github.ref == 'refs/heads/main' && inputs.version || 'patch' }}
+      - name: Publish 🚀
+        run: |
+          npm version ${{ github.ref == 'refs/heads/main' && inputs.version || 'patch' }} -m "Version %s - ${{ github.event.head_commit.message }}"
+          npm publish
+
+      - name: Commit version increment
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git commit -am "Version increment by ${{ github.actor }} and commit ${{ github.sha }}"
+          git push
