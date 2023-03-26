@@ -54,10 +54,6 @@ jobs:
 
       - name: Publish 🚀
         run: |
-          npm version ${{ github.ref == 'refs/heads/main' && inputs.version || 'patch' }} -m "Version %s - ${{ github.event.head_commit.message }}"
+          npm version ${{ github.ref == 'refs/heads/main' && inputs.version || 'patch' }} -m "Version %s by ${{ github.actor }}"
           npm publish
-
-      - name: Commit version increment
-        run: |
-          git commit -am "Version increment by ${{ github.actor }} and commit ${{ github.sha }}"
           git push
