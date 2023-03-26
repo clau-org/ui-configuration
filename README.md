@@ -1,1 +1,1 @@
-# platform-ui-configuration
+# Platform UI Configuration Layer
