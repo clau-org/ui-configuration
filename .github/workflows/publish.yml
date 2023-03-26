@@ -32,8 +32,11 @@ jobs:
       - name: Checkout code 📁
         uses: actions/checkout@v3
 
-      - name: Add npm credentials 🔒
-        run: echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
+      - name: Add credentials 🔒
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
 
       - name: Install Deno ⬇️
         uses: denoland/setup-deno@v1
@@ -56,7 +59,5 @@ jobs:
 
       - name: Commit version increment
         run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
           git commit -am "Version increment by ${{ github.actor }} and commit ${{ github.sha }}"
           git push
