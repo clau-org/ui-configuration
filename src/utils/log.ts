@@ -37,9 +37,9 @@ class Logger implements ILogger {
     const timeStyles = "color: gray; font-style: italic;";
 
     console.log(
-      `%c[${new Date().toISOString()}]%c [%c${level.toUpperCase()}%c] %c${
+      `%c[${new Date().toISOString()}]%c [%c${level.toUpperCase()}%c] %c[${
         this.prefix
-      }`,
+      }]`,
       timeStyles,
       "",
       logStyles,
