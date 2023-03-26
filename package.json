@@ -9,6 +9,8 @@
     "generate": "nuxt generate .playground",
     "preview": "cd .playground/.output/ && deno run -A --watch server/index.ts",
     "prepare": "nuxt prepare .playground",
+    "format": "npx prettier --write .",
+    "preversion": "npm run format",
     "patch": "npm version patch && npm publish",
     "minor": "npm version minor && npm publish",
     "major": "npm version major && npm publish"
@@ -26,7 +28,6 @@
     "@nuxtjs/tailwindcss": "^6.4.1",
     "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
     "@pinia/nuxt": "^0.4.7",
-    "@sidebase/nuxt-pdf": "^0.1.1",
     "@vue-hero-icons/outline": "^1.7.2",
     "@vue-hero-icons/solid": "^1.7.2",
     "@vue-macros/nuxt": "^1.2.3",
