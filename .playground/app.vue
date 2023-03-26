@@ -3,5 +3,10 @@
 </template>
 
 <script setup>
-  logger.info('hola')
+  logger.info(
+    'hola',
+    prettyJson({
+      hello: 'some json',
+    }),
+  )
 </script>
