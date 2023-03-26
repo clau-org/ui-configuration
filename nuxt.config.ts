@@ -1,34 +1,34 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  srcDir: "src/",
+  srcDir: 'src/',
 
   /**
    * Environment shared with the CLIENT
    */
   runtimeConfig: {
     public: {
-      MAGICLINK_KEY: "pk_live_3537E2E4D3D38899",
-      BASE_SITE: "https://clau-dev.com",
-      BASE_API: "https://api.clau-dev.com",
-      BASE_BUCKET: "https://bucket.clau-dev.com",
-      siteUrl: process.env.NUXT_PUBLIC_BASE_SITE || "https://clau-dev.com",
+      MAGICLINK_KEY: 'pk_live_3537E2E4D3D38899',
+      BASE_SITE: 'https://clau-dev.com',
+      BASE_API: 'https://api.clau-dev.com',
+      BASE_BUCKET: 'https://bucket.clau-dev.com',
+      siteUrl: process.env.NUXT_PUBLIC_BASE_SITE || 'https://clau-dev.com',
     },
   },
 
   modules: [
-    "@nuxtjs/tailwindcss",
-    "@pinia/nuxt",
-    "@vueuse/nuxt",
-    "nuxt-icon",
-    "nuxt-headlessui",
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
+    '@vueuse/nuxt',
+    'nuxt-icon',
+    'nuxt-headlessui',
     // "@nuxtjs/i18n",
     /**
      * HINT: Currently doesn't work with DenoDeploy
      */
     // "@nuxt/image-edge",
-    "@nuxtjs/device",
-    "@pinia-plugin-persistedstate/nuxt",
-    "nuxt-schema-org",
+    '@nuxtjs/device',
+    '@pinia-plugin-persistedstate/nuxt',
+    'nuxt-schema-org',
     // "magic-regexp/nuxt",
 
     /**
@@ -37,17 +37,17 @@ export default defineNuxtConfig({
      * - use remote images
      */
     // "nuxt-security",
-    "nuxt-swiper",
-    "nuxt-typed-router",
-    "@nuxtjs/partytown",
-    "@vue-macros/nuxt",
-    "nuxt-viewport",
-    "@sidebase/nuxt-pdf",
+    'nuxt-swiper',
+    'nuxt-typed-router',
+    '@nuxtjs/partytown',
+    '@vue-macros/nuxt',
+    'nuxt-viewport',
+    '@sidebase/nuxt-pdf',
   ],
 
   tailwindcss: {
     config: {
-      content: ["src/**/**.vue"],
+      content: ['src/**/**.vue'],
     },
   },
-});
+})
