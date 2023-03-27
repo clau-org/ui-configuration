@@ -4,9 +4,8 @@
 
 <script setup>
   logger.info(
-    'hola',
-    prettyJson({
+    '[hola un texto]',{
       hello: 'some json',
-    }),
+    },
   )
 </script>

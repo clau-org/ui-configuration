@@ -36,6 +36,24 @@ class Logger implements ILogger {
     const logStyles = `color: ${colors[level] || 'black'}; font-weight: bold;`
     const timeStyles = 'color: gray; font-style: italic;'
 
+    let logArgs = args.map((arg) => {
+      if (typeof arg === 'object' && arg !== null) {
+        try {
+          return prettyJson(arg)
+        } catch (e) {
+          return arg
+        }
+      } else if (
+        typeof arg === 'string' &&
+        arg.startsWith('[') &&
+        arg.endsWith(']')
+      ) {
+        const innerText: any = arg.slice(1, -1)
+        return `[${innerText.toUpperCase()}]`
+      }
+      return arg
+    })
+
     console.log(
       `%c[${new Date().toISOString()}]%c [%c${level.toUpperCase()}%c] %c[${
         this.prefix
@@ -45,7 +63,7 @@ class Logger implements ILogger {
       logStyles,
       '',
       '',
-      ...args,
+      ...logArgs,
     )
   }
 
